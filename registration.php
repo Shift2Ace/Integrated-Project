@@ -48,7 +48,16 @@
                         <br>
                         <br>
                         <div class="name">Age</div>
-                        <input type="number" min="1" max="200">
+                        <select id="number"></select>
+                        <script>
+                            var select = document.getElementById("number");
+                            for (var i = 1; i <= 120; i++) {
+                                var option = document.createElement("option");
+                                option.value = i;
+                                option.text = i;
+                                select.appendChild(option);
+                            }
+                        </script>
                         <br>
                         <br>
                         <div class="name">Gender</div>
@@ -64,17 +73,17 @@
                     <div class="input">
                         <div class="name">Account Type</div>
                         <select name="role" id="role">
-                            <option value="male">Passenger</option>
-                            <option value="female">Driver</option>
+                            <option value="passenger">Passenger</option>
+                            <option value="driver">Driver</option>
                         </select>
                     </div>
                     <div class="input">
                         <div class="name">Password</div>
-                        <input type="email">
+                        <input type="password">
                         <br>
                         <br>
                         <div class="name">Confirm Password</div>
-                        <input type="email">
+                        <input type="password">
                     </div>
                     <div id="button">
                         <a id="clear" href="/login.php">Cancel</a>
@@ -83,7 +92,5 @@
                 </form>
             </div>
         </div>
-        
     </body>
-
 </html>
