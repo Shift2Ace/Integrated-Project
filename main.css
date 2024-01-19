@@ -1,0 +1,87 @@
+body {
+    font-family: sans-serif;
+    font-size: 16px;
+    color: #000000;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+}
+
+div.container {
+    margin: auto;
+    width: max-content;
+    padding: 15px;
+}
+
+div.list {
+    background-color: #c8daeb;
+    margin: 10px;
+    margin: auto;
+    margin-top: 15px;
+    padding: 20px;
+    border-radius: 20px;
+    max-width: 1500px;
+    min-width: 1500px;
+}
+
+div.form, div.login{
+    background-color: #c8daeb;
+    margin: auto;
+    margin-top: 15px;
+    padding: 20px;
+    border-radius: 20px;
+    
+}
+
+div.form {
+    width: 800px;
+}
+
+div.login {
+    width: 400px;
+}
+
+
+.header {
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+
+.list .item {
+    background-color: rgb(255, 255, 255);
+    margin: 2px;
+    padding: 3px;
+    border-radius: 3px;
+    display: block;
+}
+
+.list .item table{
+    width: 100%;
+}
+
+form div.input{
+    width: auto;
+    background-color: rgb(255, 255, 255);
+    margin: 2px;
+    margin-bottom: 10px;
+    padding: 6px;
+    border-radius: 5px;
+
+}
+
+form div.input input, form div.input select{
+    width: 100%;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 2 solid;
+    font-size: 20px;
+    outline: none;
+    background-color: transparent;
+    padding: 2px;
+}
+
+form div.input div.name {
+    color: #b1b1b1;
+}
