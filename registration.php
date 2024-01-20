@@ -2,7 +2,7 @@
     <head>
         <link rel="stylesheet" href="main.css">
         <style>
-            #submit, #clear{
+            #submit, #cancel{
                 font-size: 20px;
                 border: 0;
                 border-radius: 4px;
@@ -13,14 +13,15 @@
             #submit {
                 background-color: #6fb;
             }
-            #clear {
+            #cancel {
                 background-color: #f33;
             }
             #submit:hover {
                 background-color: #0f8;
             }
-            #clear:hover {
+            #cancel:hover {
                 background-color: #f00;
+                color: #fff;
             }
             #button {
                 margin-top: 20px;
@@ -86,7 +87,7 @@
                         <input type="password">
                     </div>
                     <div id="button">
-                        <a id="clear" href="/login.php">Cancel</a>
+                        <a id="cancel" href="/login.php">Cancel</a>
                         <button type="submit" id="submit">Apply</button>
                     </div>
                 </form>

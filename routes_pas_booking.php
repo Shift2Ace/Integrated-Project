@@ -8,30 +8,72 @@
             .cl2 {
                 width: 50%;
             }
-            table {
-                background-color: #ddd;
+            #button {
+                margin-top: 20px;
+                text-align: right;
+            }
+            #submit, #cancel{
+                font-size: 20px;
+                border: 0;
+                border-radius: 4px;
+                padding: 5px;
+                color: black;
+                text-decoration: none;
+            }
+            #submit {
+                background-color: #6fb;
+            }
+            #cancel {
+                background-color: #f33;
+            }
+            #submit:hover {
+                background-color: #0f8;
+            }
+            #cancel:hover {
+                background-color: #f00;
             }
         </style>
     </head>
     <body>
         <?php include 'header.php'; ?>
         <div class="container">
-            <div class="list">
+            <div class="content">
                 <div class="header">
-                    header
+                    Confirmation
                 </div>
                 <div class="item">
                     <table>
                         <tr>
-                            <td class="cl1">
-                                1
-                            </td>
-                            <td class="cl2">
-                                2
-                            </td>
+                            <td>Route ID</td>
+                            <td> : </td>
+                        </tr>
+                        <tr>
+                            <td>Starting Location</td>
+                            <td> : </td>
+                        </tr>
+                        <tr>
+                            <td>Destination</td>
+                            <td> : </td>
+                        </tr>
+                        <tr>
+                            <td>Date</td>
+                            <td> : </td>
+                        </tr>
+                        <tr>
+                            <td>Time</td>
+                            <td> : </td>
+                        </tr>
+                        <tr>
+                            <td>Price</td>
+                            <td> : </td>
                         </tr>
                     </table>
                 </div>
+                <div id="button">
+                    <a href="" id="cancel">Cancel</a>
+                    <a href="" id="submit">Confirm</a>
+                </div>
+                
             </div>
         </div>
         

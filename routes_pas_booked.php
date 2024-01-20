@@ -8,9 +8,6 @@
             .cl2 {
                 width: 50%;
             }
-            table {
-                background-color: #ddd;
-            }
         </style>
     </head>
     <body>

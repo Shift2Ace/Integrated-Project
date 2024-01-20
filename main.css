@@ -12,15 +12,16 @@ div.container {
     padding: 15px;
 }
 
-div.list {
+div.list, div.content{
     background-color: #c8daeb;
     margin: 10px;
     margin: auto;
     margin-top: 15px;
     padding: 20px;
     border-radius: 20px;
-    max-width: 1500px;
-    min-width: 1500px;
+}
+div.list {
+    width: 1200px;
 }
 
 div.form, div.login{
@@ -48,7 +49,7 @@ div.login {
 }
 
 
-.list .item {
+.item{
     background-color: rgb(255, 255, 255);
     margin: 2px;
     padding: 3px;
@@ -75,11 +76,16 @@ form div.input input, form div.input select{
     border-top: 0;
     border-left: 0;
     border-right: 0;
-    border-bottom: 2 solid;
+    border-bottom: 2px solid;
     font-size: 20px;
     outline: none;
     background-color: transparent;
     padding: 2px;
+}
+input[type="text"] {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;    
+    box-sizing: border-box;         
 }
 
 form div.input div.name {

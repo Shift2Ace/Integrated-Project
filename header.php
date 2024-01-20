@@ -78,7 +78,7 @@
                     <li><a href="routes.php">Routes</a></li>
                     <li><a href="routes_pas_booked.php">My Order</a></li>
                     <li><a href="routes_dri.php">My Routes</a></li>
-                    <li><a href="acount.php">Account</a></li>
+                    <li><a href="account.php">Account</a></li>
                     <li style="float:right"><a href="login.php">login</a></li>
                     <li style="float:right"><a href="">logout</a></li>
                 </ul>

@@ -6,10 +6,10 @@
                 width: 50px;
             }
             .cl2 {
-                width: 50%;
+                width: auto;
             }
-            table {
-                background-color: #ddd;
+            .cl3 {
+                width: 30px;
             }
             .list {
                 width: 1500px;
@@ -21,7 +21,7 @@
         <div class="container">
             <div class="list">
                 <div class="header">
-                    header
+                    Routes
                 </div>
                 <div class="item">
                     <table>
@@ -31,6 +31,9 @@
                             </td>
                             <td class="cl2">
                                 2
+                            </td>
+                            <td class="cl3">
+                                <a href="routes_pas_booking.php">book</a>
                             </td>
                         </tr>
                     </table>
