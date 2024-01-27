@@ -8,30 +8,6 @@
             .cl2 {
                 width: 50%;
             }
-            #button {
-                margin-top: 20px;
-                text-align: right;
-            }
-            #submit, #cancel{
-                font-size: 20px;
-                border: 0;
-                border-radius: 4px;
-                padding: 5px;
-                color: black;
-                text-decoration: none;
-            }
-            #submit {
-                background-color: #6fb;
-            }
-            #cancel {
-                background-color: #f33;
-            }
-            #submit:hover {
-                background-color: #0f8;
-            }
-            #cancel:hover {
-                background-color: #f00;
-            }
         </style>
     </head>
     <body>
@@ -70,8 +46,8 @@
                     </table>
                 </div>
                 <div id="button">
-                    <a href="" id="cancel">Cancel</a>
-                    <a href="" id="submit">Confirm</a>
+                    <a href="" id="cancel" class="button bt_cancel">Cancel</a>
+                    <a href="" id="submit" class="button bt_apply">Confirm</a>
                 </div>
                 
             </div>

@@ -76,7 +76,6 @@ form div.input input, form div.input select{
     border-top: 0;
     border-left: 0;
     border-right: 0;
-    border-bottom: 2px solid;
     font-size: 20px;
     outline: none;
     background-color: transparent;
@@ -90,4 +89,51 @@ input[type="text"] {
 
 form div.input div.name {
     color: #b1b1b1;
+}
+
+.button {
+    font-size: 20px;
+    border: 0;
+    border-radius: 4px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: white;
+    text-decoration: none;
+}
+.bt_cancel {
+    background-color: #222;
+}
+.bt_cancel:hover {
+    background-color: #000;
+}
+.bt_apply {
+    background-color: #1d50af;
+}
+.bt_apply:hover {
+    background-color: #153b81;
+}
+.bt_delete {
+    background-color: #aa0000;
+}
+.bt_delete:hover {
+    background-color: #680000;
+}
+div#button {
+    margin-top: 20px;
+    text-align: right;
+}
+
+.bt_text, .bt_text_red{
+    text-decoration: none;
+    color: #555
+}
+
+.bt_text:hover {
+    color: #222
+}
+
+.bt_text_red:hover {
+    color: #ec0000
 }

@@ -2,23 +2,17 @@
     <head>
         <link rel="stylesheet" href="main.css">
         <style>
-            #submit {
-                background-color: #6fb;
-                font-size: 20px;
-                border: 0;
-                border-radius: 4px;
-                padding: 5px;
-            }
-            #submit:hover {
-                background-color: #0f8;
-            }
-            #button {
-                margin-top: 20px;
-                text-align: right;
-            }
             form {
                 margin: 0;
             }
+            .bt_apply {
+                width: 100%;
+            }
+
+            form div.input input, form div.input select{
+                border-bottom: 0px solid;
+            }
+            
         </style>
     </head>
     <body>
@@ -37,9 +31,10 @@
                         <div class="name">Password</div>
                         <input type="password">
                     </div>
-                    <a href="registration.php">Create account</a>
+                    <a href="registration.php" class="bt_text">Create account</a>
                     <div id="button">
-                        <button type="submit" id="submit">Login</button>
+                        
+                        <button type="submit" id="submit" class="button bt_apply">Login</button>
                     </div>
                 </form>
             </div>

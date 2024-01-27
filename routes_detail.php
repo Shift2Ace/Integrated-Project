@@ -6,32 +6,6 @@
             .cl2 {
                 width: 50%;
             }
-            #button {
-                margin-top: 20px;
-                text-align: right;
-            }
-            #submit, #cancel, #delete{
-                font-size: 20px;
-                border: 0;
-                border-radius: 4px;
-                padding: 5px;
-                color: black;
-                text-decoration: none;
-            }
-            #submit {
-                background-color: #6fb;
-            }
-            #cancel, #delete {
-                background-color: #f33;
-            }
-            #submit:hover {
-                background-color: #0f8;
-            }
-            #cancel:hover ,#delete:hover {
-                background-color: #f00;
-                color: #fff;
-            }
-            
             div#description {
                 width: auto;                
             }
@@ -116,9 +90,9 @@
                     sdff sdf sdf f sdf sdf ds sdaf sd sdf sd
                 </div>
                 <div id="button">
-                    <a href="" id="cancel">Cancel</a>
-                    <a href="" id="submit">Book</a>
-                    <a href="" id="Delete">Delete</a>
+                    <a href="" id="cancel" class="button bt_cancel">Cancel</a>
+                    <a href="" id="submit" class="button bt_apply">Book</a>
+                    <a href="" id="Delete" class="button bt_delete">Delete</a>
                 </div>
                 
             </div>

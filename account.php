@@ -18,9 +18,7 @@
                 background-color: #fff;
                 margin: 2px;
             }
-            .item a:hover {
-                color: #f00;
-            }
+            
         </style>
     </head>
     <body>
@@ -60,12 +58,12 @@
                     </div>
                 </div>
                 <div class="item">
-                    <a href="editAc.php">Edit account</a>
+                    <a href="editAc.php" class="bt_text">Edit account</a>
                     <br>
-                    <a href="resetPassword.php">Reset password</a>
+                    <a href="resetPassword.php" class="bt_text">Reset password</a>
                     <br>
                     <br>
-                    <a href="deleteAc.php">Delete account</a>
+                    <a href="deleteAc.php" class="bt_text_red">Delete account</a>
                 </div>
             </div>
         </div>

@@ -1,32 +1,7 @@
 <!DOCTYPE html>
     <head>
         <link rel="stylesheet" href="main.css">
-        <style>
-            #submit, #cancel{
-                font-size: 20px;
-                border: 0;
-                border-radius: 4px;
-                padding: 5px;
-                color: black;
-                text-decoration: none;
-            }
-            #submit {
-                background-color: #6fb;
-            }
-            #cancel {
-                background-color: #f33;
-            }
-            #submit:hover {
-                background-color: #0f8;
-            }
-            #cancel:hover {
-                background-color: #f00;
-                color: #fff;
-            }
-            #button {
-                margin-top: 20px;
-                text-align: right;
-            }
+        <style>  
             form {
                 margin: 0;
             }
@@ -37,7 +12,9 @@
                 resize: vertical;
                 box-sizing: border-box;
                 width: 100%;
-
+            }
+            form div.input input, form div.input select{
+                border-bottom: 1px solid #888;
             }
         </style>
         <script>
@@ -60,7 +37,7 @@
 
                 for (var i = 0; i < options.length; i++) {
                     var option = document.createElement("option");
-                    option.value = options[i].toLowerCase();
+                    option.value = options[i];
                     option.text = options[i];
                     targetDistrict.appendChild(option);
                 }
@@ -138,8 +115,8 @@
                         <textarea></textarea>
                     </div>
                     <div id="button">
-                        <a id="cancel" href="/login.php">Cancel</a>
-                        <button type="submit" id="submit">Apply</button>
+                        <a id="cancel" href="/login.php" class="button bt_cancel">Cancel</a>
+                        <button type="submit" id="submit"  class="button bt_apply">Apply</button>
                     </div>
                 </form>
             </div>
