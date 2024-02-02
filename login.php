@@ -22,14 +22,14 @@
                 <div class="header">
                     Login
                 </div>
-                <form>
+                <form action="login_submit.php" method="post">
                     <div class="input">
-                        <div class="name">Email</div>
-                        <input type="email">
+                        <div class="name">Email / ID</div>
+                        <input type="text" name="email" required>
                     </div>
                     <div class="input">
                         <div class="name">Password</div>
-                        <input type="password">
+                        <input type="password" name="password" required>
                     </div>
                     <a href="registration.php" class="bt_text">Create account</a>
                     <div id="button">

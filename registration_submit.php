@@ -1,6 +1,4 @@
 <?php
-    ini_set('display_errors',1);
-    error_reporting(-1);
 
     #exit if not from registration.php
     if (!$_POST["user_name"] || !$_POST["age"] || !$_POST["gender"] || !$_POST["email"] || !$_POST["role"] || !$_POST["password"]) {
@@ -59,7 +57,7 @@
                 $email_check = 1;
                 if ($result) {
                     $row = $result->fetch_assoc();
-                    $db_psw =  $row["(psw_db)"];
+                    $db_psw =  $row["psw_db"];
                     $result->free();
                 }
             }
@@ -84,7 +82,7 @@
             } while ($conn->more_results() && $conn->next_result());
 
             #sql create database account
-            $sql = "CREATE USER '$user_id' IDENTIFIED BY '$db_psw';";
+            $sql = "CREATE USER '$user_id'@'localhost' IDENTIFIED BY '$db_psw';";
             if ($conn->multi_query($sql)){
                 $result = $conn->store_result();
                 if ($result) {
