@@ -4,12 +4,7 @@
     session_start();
 
     $s_user_ip = $_SERVER ['REMOTE_ADDR'];
-    
-    if ($s_user_ip){
-        echo("<script>
-        console.log('$s_user_ip');
-        </script>");
-    }
+
 
     if (!isset($_SESSION['login_status'])){
         $_SESSION['login_status'] = false;
@@ -26,31 +21,37 @@
         $u_id = $_COOKIE['user_id'];
         $sql = "CALL login_by_session('$u_id','$s_user_ip','$s_id');";
         $result = $conn->query($sql);
-        if ($result) {
+        if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
             #set to session (user id and database password)
             $_SESSION['user_id'] = $row["user_id"];
             $_SESSION['db_psw'] = $row["user_psw_db"];
+
+            $conn->close();
+
+
+            $conn = mysqli_connect("localhost", $_SESSION['user_id'], $_SESSION['db_psw'], "webserver",3306);
+            if (!$conn) {
+                die("Connection failed: " . mysqli_connect_error());
+            }
+            $sql = "SELECT * FROM my_account;";
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0) {
+                $row = $result->fetch_assoc();
+                #set to session (role and login status)
+                $_SESSION["role"] = $row["user_role"];
+                $_SESSION['login_status'] = true;
+            }
+
         } else {
             #delete cookie
             setcookie("s_id","");
             setcookie("user_id","");
         }
         
-        $conn->close();
+        
 
-        $conn = mysqli_connect("localhost", $_SESSION['user_id'], $_SESSION['db_psw'], "webserver",3306);
-        if (!$conn) {
-            die("Connection failed: " . mysqli_connect_error());
-        }
-        $sql = "SELECT * FROM my_account;";
-        $result = $conn->query($sql);
-        if ($result) {
-            $row = $result->fetch_assoc();
-            #set to session (role and login status)
-            $_SESSION["role"] = $row["user_role"];
-            $_SESSION['login_status'] = true;
-        }
+        
     }
 ?>
 

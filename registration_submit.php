@@ -1,4 +1,7 @@
 <?php
+    
+    ini_set('display_errors',1);
+    error_reporting(-1);
 
     #exit if not from registration.php
     if (!$_POST["user_name"] || !$_POST["age"] || !$_POST["gender"] || !$_POST["email"] || !$_POST["role"] || !$_POST["password"]) {
@@ -95,7 +98,7 @@
             } while ($conn->more_results() && $conn->next_result());
 
             #sql grant role
-            $sql = "GRANT $role TO '$user_id';";
+            $sql = "GRANT $role TO '$user_id'@'localhost';";
             if ($conn->multi_query($sql)){
                 $result = $conn->store_result();
                 if ($result) {
@@ -108,7 +111,7 @@
             } while ($conn->more_results() && $conn->next_result());
 
             #sql set default role
-            $sql = "SET DEFAULT ROLE $role TO '$user_id';";
+            $sql = "SET DEFAULT ROLE $role TO '$user_id'@'localhost';";
             if ($conn->multi_query($sql)){
                 $result = $conn->store_result();
                 if ($result) {
