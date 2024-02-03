@@ -11,6 +11,11 @@
             table {
                 background-color: #ddd;
             }
+            div.createRoute {
+                text-align: right;
+                padding: 2px;
+                margin-bottom: 10px;
+            }
         </style>
     </head>
     <body>
@@ -18,7 +23,10 @@
         <div class="container">
             <div class="list">
                 <div class="header">
-                    header
+                    My Routes
+                </div>
+                <div class="createRoute">
+                    <a href="routes_create.php" class="button bt_apply">Create New</a>
                 </div>
                 <div class="item">
                     <table>

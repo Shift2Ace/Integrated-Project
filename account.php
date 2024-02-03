@@ -61,6 +61,8 @@
         // Get the first file
         $icon_path = $files[0];
         
+    } else {
+        $icon_path = "image/default_icon.jpeg";
     }
  
 
