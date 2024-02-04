@@ -25,22 +25,22 @@
 
 
     $sql = "CALL login_by_password('$email','$password','$s_user_ip','$session_id');";
-        $result = $conn->query($sql);
-        if ($result->num_rows > 0) {
-            while($row = $result->fetch_assoc()){
-                #set to cookie
-                setcookie("user_id", $row["uid"],time() + (10 * 365 * 24 * 60 * 60));
-                setcookie("s_id", $row["sid"],time() + (10 * 365 * 24 * 60 * 60));
-            }
-            $conn->close();
-            header("Location: routes.php");
-        } else {
-            $conn->close();
-            echo "<script>";
-            echo "alert('Login Failed');";
-            echo "window.location = 'login.php';";
-            echo "</script>";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()){
+            #set to cookie
+            setcookie("user_id", $row["uid"],time() + (10 * 365 * 24 * 60 * 60));
+            setcookie("s_id", $row["sid"],time() + (10 * 365 * 24 * 60 * 60));
         }
+        $conn->close();
+        header("Location: routes.php");
+    } else {
+        $conn->close();
+        echo "<script>";
+        echo "alert('Login Failed');";
+        echo "window.location = 'login.php';";
+        echo "</script>";
+    }
 
 
 ?>
