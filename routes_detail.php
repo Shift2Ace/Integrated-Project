@@ -7,6 +7,8 @@
         header("Location: routes.php");
     }
 
+    $_SESSION["booking_route_id"] =  $route_id;
+
 
     #connect
     $conn = mysqli_connect("localhost", "default", "default", "webserver",3306);
@@ -138,7 +140,7 @@
                     <a id="cancel" href="routes.php" class="button bt_cancel">Cancel</a>
                     <?php
                         if ($_SESSION['login_status'] && $_SESSION['role']=="passenger"){
-                            echo "<a href='' id='submit' class='button bt_apply'>Book</a>";
+                            echo "<a href='routes_pas_booking.php?id=$route_id' id='submit' class='button bt_apply'>Book</a>";
                         }
                         if ($_SESSION['login_status'] && $_SESSION['role']=="driver" && $driver_id == $_SESSION["user_id"]){
                             echo "<a href='' id='Delete' class='button bt_delete'>Delete</a>";
