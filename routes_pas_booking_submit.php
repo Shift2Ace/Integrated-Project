@@ -42,19 +42,19 @@
                 case "0":
                     echo "<script>";
                     echo "alert('Successfully');";
-                    echo "window.location = 'registration.php';";
+                    echo "window.location = 'routes.php';";
                     echo "</script>";
                     break;
                 case "1":
                     echo "<script>";
                     echo "alert('This route is full');";
-                    echo "window.location = 'registration.php';";
+                    echo "window.location = 'routes.php';";
                     echo "</script>";
                     break;
                 case "2":
                     echo "<script>";
                     echo "alert('You have already booked');";
-                    echo "window.location = 'registration.php';";
+                    echo "window.location = 'routes.php';";
                     echo "</script>";
                     break;
             }
