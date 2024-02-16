@@ -77,7 +77,11 @@
             div.item:hover {
                 background-color: #c8daeb;
             }
-
+            div.create {
+                margin: 2px;
+                margin-bottom: 10px;
+                text-align: right;
+            }
         </style>
     </head>
     <body>
@@ -86,6 +90,9 @@
             <div class="list">
                 <div class="header">
                     Routes
+                </div>
+                <div class="create">
+                    <a href="routes_create.php" class="button bt_apply">Create New</a>
                 </div>
                 <div class='topHeader'>
                     <table>
@@ -102,7 +109,7 @@
                 </div>
                 <?php
                     $user_id = $_SESSION["user_id"];
-                    $sql = "SELECT route_list.route_id, route_list.route_date, route_list.route_time, route_list.route_start, route_list.route_end, route_list.route_price,route_list.route_capacity, route_booking_count.booking_count FROM route_list, route_booking_count WHERE route_list.route_id = route_booking_count.route_id AND route_list.driver_id = '$user_id'";
+                    $sql = "SELECT route_list.route_id, route_list.route_date, route_list.route_time, route_list.route_start, route_list.route_end, route_list.route_price,route_list.route_capacity, route_booking_count.booking_count FROM route_list, route_booking_count WHERE route_list.route_id = route_booking_count.route_id AND route_list.driver_id = '$user_id' AND route_list.route_status = 'active'";
                     if ($conn->multi_query($sql)){
                         $result = $conn->store_result();
                         while($row = $result->fetch_assoc()) {

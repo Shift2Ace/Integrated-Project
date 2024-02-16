@@ -7,7 +7,8 @@
         header("Location: routes.php");
     }
 
-    $_SESSION["booking_route_id"] =  $route_id;
+    $_SESSION["booking_route_id"] =  "";
+    $_SESSION["delete_route_id"] =  "";
 
 
     #connect
@@ -40,6 +41,11 @@
             header("Location: routes.php");
         }
     }
+
+    do {
+        $conn->use_result();
+    } while ($conn->more_results() && $conn->next_result());
+
 ?>
 
 <html>
@@ -140,10 +146,23 @@
                     <a id="cancel" href="routes.php" class="button bt_cancel">Cancel</a>
                     <?php
                         if ($_SESSION['login_status'] && $_SESSION['role']=="passenger"){
-                            echo "<a href='routes_pas_booking.php?id=$route_id' id='submit' class='button bt_apply'>Book</a>";
+                            $conn = mysqli_connect("localhost", $_SESSION['user_id'], $_SESSION['db_psw'], "webserver",3306);
+                            if (!$conn) {
+                                die("Connection failed: " . mysqli_connect_error());
+                            }
+                            $sql = "SELECT * FROM my_booking WHERE route_id = '$route_id';";
+                            if ($conn->multi_query($sql)){
+                                $result = $conn->store_result();
+                                if ($result->num_rows > 0) {
+                                    echo "<a href='routes_booking_cancel.php?id=$route_id' id='submit' class='button bt_delete'>Remove</a>";
+                                    $result->free();
+                                } else {
+                                    echo "<a href='routes_pas_booking.php?id=$route_id' id='submit' class='button bt_apply'>Book</a>";
+                                }
+                            }
                         }
                         if ($_SESSION['login_status'] && $_SESSION['role']=="driver" && $driver_id == $_SESSION["user_id"]){
-                            echo "<a href='' id='Delete' class='button bt_delete'>Delete</a>";
+                            echo "<a href='route_delete.php?id=$route_id' id='Delete' class='button bt_delete'>Delete</a>";
                         }
                     ?>
                 </div>

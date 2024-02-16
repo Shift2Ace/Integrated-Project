@@ -54,6 +54,8 @@
     }else if ($email_check == 0) {
         try {
             #sql add user
+            $name = mysqli_escape_string($conn,$name);
+            $email = mysqli_escape_string($conn,$email);
             $sql = "CALL create_account('$name','$email','$gender',$age,'$role','$password');";
             if ($conn->multi_query($sql)){
                 $result = $conn->store_result();

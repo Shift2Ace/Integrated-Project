@@ -8,6 +8,9 @@
     if (!$conn) {
         die("Connection failed: " . mysqli_connect_error());
     }
+
+    $_SESSION["booking_route_id"] =  "";
+    $_SESSION["delete_route_id"] =  "";
 ?>
 
 <html>

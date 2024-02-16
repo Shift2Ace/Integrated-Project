@@ -1,6 +1,5 @@
 <?php
     session_start();
-    $route_id = "";
     if (isset($_GET["id"])){
         $route_id_input = $_GET["id"];
     } else {
@@ -18,7 +17,7 @@
     if (!isset($_SESSION['role'])){
         header("Location: routes.php");
     } else {
-        if ($_SESSION['role'] != 'passenger'){
+        if ($_SESSION['role'] != 'driver'){
             header("Location: routes.php");
         }
     }
@@ -53,8 +52,11 @@
             header("Location: routes.php");
         }
     }
-
-    $_SESSION["booking_route_id"] =  $route_id;
+    if ($driver_id != $_SESSION['user_id']){
+        header("Location: routes.php");
+    }else {
+        $_SESSION["delete_route_id"] =  $route_id;
+    }
 ?>
 <html>
     <head>
@@ -111,7 +113,7 @@
                 </div>
                 <div id="button">
                     <a href="routes_detail.php?id=<?php echo $route_id ?>" id="cancel" class="button bt_cancel">Cancel</a>
-                    <a href="routes_pas_booking_submit.php" id="submit" class="button bt_apply">Confirm</a>
+                    <a href="route_delete_submit.php" id="submit" class="button bt_delete">Delete</a>
                 </div>
                 
             </div>

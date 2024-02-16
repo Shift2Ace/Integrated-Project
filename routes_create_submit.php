@@ -31,6 +31,8 @@
     $price = $_POST['price'];
     $description = $_POST['description'];
 
+    
+    
 
     if (strtotime($date) < time()) {
         $console = "Invalid Date";
@@ -38,10 +40,17 @@
         echo "<script>window.location = 'routes_create.php';</script>";
     }else {
         $conn = mysqli_connect("localhost", $_SESSION['user_id'], $_SESSION['db_psw'], "webserver",3306);
-        $sql = "CALL create_route('$date', '$time', '$start', '$end', '$car', $capacity, $price, '$description')";
+        
         if (!$conn) {
             die("Connection failed: " . mysqli_connect_error());
         }
+        
+        $start = mysqli_escape_string($conn,$start);
+        $end = mysqli_escape_string($conn,$end);
+        $car = mysqli_escape_string($conn,$car);
+        $description = mysqli_escape_string($conn,$description);
+        $sql = "CALL create_route('$date', '$time', '$start', '$end', '$car', $capacity, $price, '$description')";
+
         $result = $conn->query($sql);
         $conn -> close();
 
