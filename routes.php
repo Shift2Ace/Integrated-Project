@@ -11,6 +11,7 @@
 
     $_SESSION["booking_route_id"] =  "";
     $_SESSION["delete_route_id"] =  "";
+    $_SESSION["delete_booking_id"] = "";
 ?>
 
 <html>

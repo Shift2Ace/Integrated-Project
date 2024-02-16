@@ -17,7 +17,8 @@
         die("Connection failed: " . mysqli_connect_error());
     }
 
-    $sql = "SELECT route_list.route_id, route_list.route_date, route_list.route_time, route_list.route_start, route_list.route_end, route_list.route_car, route_list.route_description, route_list.route_price,route_list.route_capacity, route_booking_count.booking_count, route_list.route_status, route_list.driver_id, route_list.driver_name, route_list.driver_email FROM route_list, route_booking_count WHERE route_list.route_id = route_booking_count.route_id AND route_list.route_id = '$route_id_input';";
+
+    $sql = "SELECT route_list.route_id, route_list.route_date, route_list.route_time, route_list.route_start, route_list.route_end, route_list.route_car, route_list.route_description, route_list.route_price,route_list.route_capacity, route_booking_count.booking_count, route_list.route_status, route_list.driver_id, route_list.driver_name, route_list.driver_email, route_list.route_status FROM route_list, route_booking_count WHERE route_list.route_id = route_booking_count.route_id AND route_list.route_id = '$route_id_input';";
     if ($conn->multi_query($sql)){
         $result = $conn->store_result();
         if ($result->num_rows > 0) {
@@ -35,6 +36,7 @@
                 $driver_email = $row["driver_email"];
                 $route_car = $row["route_car"];
                 $driver_id = $row["driver_id"];
+                $route_status = $row["route_status"];
             }
             $result->free();
         } else {
@@ -145,24 +147,29 @@
                 <div id="button">
                     <a id="cancel" href="routes.php" class="button bt_cancel">Cancel</a>
                     <?php
-                        if ($_SESSION['login_status'] && $_SESSION['role']=="passenger"){
-                            $conn = mysqli_connect("localhost", $_SESSION['user_id'], $_SESSION['db_psw'], "webserver",3306);
-                            if (!$conn) {
-                                die("Connection failed: " . mysqli_connect_error());
-                            }
-                            $sql = "SELECT * FROM my_booking WHERE route_id = '$route_id';";
-                            if ($conn->multi_query($sql)){
-                                $result = $conn->store_result();
-                                if ($result->num_rows > 0) {
-                                    echo "<a href='routes_booking_cancel.php?id=$route_id' id='submit' class='button bt_delete'>Remove</a>";
-                                    $result->free();
-                                } else {
-                                    echo "<a href='routes_pas_booking.php?id=$route_id' id='submit' class='button bt_apply'>Book</a>";
+                        if ($route_status == "active"){
+                            if ($_SESSION['login_status'] && $_SESSION['role']=="passenger"){
+                                $conn = mysqli_connect("localhost", $_SESSION['user_id'], $_SESSION['db_psw'], "webserver",3306);
+                                if (!$conn) {
+                                    die("Connection failed: " . mysqli_connect_error());
+                                }
+                                $sql = "SELECT * FROM my_booking WHERE route_id = '$route_id';";
+                                if ($conn->multi_query($sql)){
+                                    $result = $conn->store_result();
+                                    if ($result->num_rows > 0) {
+                                        if (isset($_GET["bk"])){
+                                            $booking_id = $_GET["bk"];
+                                            echo "<a href='routes_booking_cancel.php?id=$route_id&bk=$booking_id' id='submit' class='button bt_delete'>Remove</a>";
+                                        }
+                                        $result->free();
+                                    } else {
+                                        echo "<a href='routes_pas_booking.php?id=$route_id' id='submit' class='button bt_apply'>Book</a>";
+                                    }
                                 }
                             }
-                        }
-                        if ($_SESSION['login_status'] && $_SESSION['role']=="driver" && $driver_id == $_SESSION["user_id"]){
-                            echo "<a href='route_delete.php?id=$route_id' id='Delete' class='button bt_delete'>Delete</a>";
+                            if ($_SESSION['login_status'] && $_SESSION['role']=="driver" && $driver_id == $_SESSION["user_id"]){
+                                echo "<a href='route_delete.php?id=$route_id' id='Delete' class='button bt_delete'>Delete</a>";
+                            }
                         }
                     ?>
                 </div>

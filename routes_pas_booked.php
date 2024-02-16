@@ -24,6 +24,8 @@
     if (!$conn) {
         die("Connection failed: " . mysqli_connect_error());
     }
+
+    $_SESSION["delete_booking_id"] = "";
 ?>
 
 <html>
@@ -83,7 +85,8 @@
                 <div class='topHeader'>
                     <table>
                     <tr>
-                        <td class='cl1'>ID</td>
+                        <td class='cl1'>Booking ID</td>
+                        <td class='cl1'>Route ID</td>
                         <td class='cl2'>Date</td>
                         <td class='cl3'>Time</td>
                         <td class='cl4'>Start Location</td>
@@ -94,10 +97,11 @@
                 </div>
                 <?php
                     $today = date('Y-m-d');
-                    $sql = "SELECT route_id, route_date, route_time, route_start, route_end, route_status FROM my_booking;";
+                    $sql = "SELECT booking_id, route_id, route_date, route_time, route_start, route_end, route_status FROM my_booking;";
                     if ($conn->multi_query($sql)){
                         $result = $conn->store_result();
                         while($row = $result->fetch_assoc()) {
+                            $booking_id = $row["booking_id"];
                             $route_id = $row["route_id"];
                             $route_date = $row["route_date"];
                             $route_time = $row["route_time"];
@@ -106,10 +110,11 @@
                             $route_start = explode(",", $temp_start)[1];
                             $route_end = explode(",", $temp_end)[1];
                             $route_status = $row["route_status"];
-                            echo "<a href='routes_detail.php?id=$route_id' class='detail'>";
+                            echo "<a href='routes_detail.php?id=$route_id&bk=$booking_id' class='detail'>";
                             echo "<div class='item'>";
                             echo "<table>";
                             echo "<tr>";
+                            echo "<td class='cl1'>"."$booking_id"."</td>";
                             echo "<td class='cl1'>"."$route_id"."</td>";
                             echo "<td class='cl2'>"."$route_date"."</td>";
                             echo "<td class='cl3'>"."$route_time"."</td>";
