@@ -165,7 +165,7 @@
                     </div>
                 </div>
                 <div class="item">
-                    <a href="editAc.php" class="bt_text">Edit account</a>
+                    <a href="edit_account.php" class="bt_text">Edit account</a>
                     <br>
                     <a href="resetPassword.php" class="bt_text">Reset password</a>
                     <br>

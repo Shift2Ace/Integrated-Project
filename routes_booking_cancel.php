@@ -114,7 +114,7 @@
                 </div>
                 <div id="button">
                     <a href="routes_pas_booked.php" id="cancel" class="button bt_cancel">Cancel</a>
-                    <a href="route_booking_cancel_submit.php" id="submit" class="button bt_delete">Remove</a>
+                    <a href="routes_booking_cancel_submit.php" id="submit" class="button bt_delete">Remove</a>
                 </div>
                 
             </div>
