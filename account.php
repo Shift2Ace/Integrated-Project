@@ -10,6 +10,8 @@
             header("Location: routes.php");
         }
     }
+
+    $_SESSION["delete_account"] = false ;
     
     $user_id = '';
     $user_email = '';
@@ -168,7 +170,7 @@
                     <a href="resetPassword.php" class="bt_text">Reset password</a>
                     <br>
                     <br>
-                    <a href="deleteAc.php" class="bt_text_red">Delete account</a>
+                    <a href="delete_account.php" class="bt_text_red">Delete account</a>
                 </div>
             </div>
         </div>
