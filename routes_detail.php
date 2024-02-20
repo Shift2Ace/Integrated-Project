@@ -55,11 +55,34 @@
         <link rel="stylesheet" href="main.css">
         <style>
             
-            .cl2 {
-                width: 50%;
-            }
             div#description {
                 width: auto;                
+            }
+            table {
+                width: 100%;
+            }
+            .cl1 {
+                width: 150px;
+            }
+            .cl2 {
+                width: 300px;
+            }
+            .cl3 {
+                width: 100px;
+            }
+            .cl4 {
+                width: auto;
+            }
+            .cl5 {
+                width: 300px;
+            }
+            h2 {
+                margin: 2px;
+                margin-top: 10px;
+            }
+            .hd {
+                font-weight: 900;
+                border-bottom: 2px solid;
             }
 
             
@@ -144,10 +167,56 @@
                     Description <br><br>
                     <?php echo nl2br($route_description)?>
                 </div>
+                <?php
+                    if ($_SESSION['login_status'] && $_SESSION['role']=="driver" && $driver_id == $_SESSION["user_id"]){
+                        echo "<h2> Passenger </h2>";
+                        echo "<div class='item' id='description'>";
+                        echo "<table cellspacing='0'>";
+                        $conn = mysqli_connect("localhost", $_SESSION['user_id'], $_SESSION['db_psw'], "webserver",3306);
+                        $sql = "CALL get_passenger($route_id);";
+                        
+                        echo "<tr>";
+                        echo "<td class='cl1 hd'>User ID</td>";
+                        echo "<td class='cl2 hd'>User Name</td>";
+                        echo "<td class='cl3 hd'>Gender</td>";
+                        echo "<td class='cl4 hd'>Age</td>";
+                        echo "<td class='cl5 hd'>Email</td>";
+                        echo "</tr>";
+
+                        if ($conn->multi_query($sql)){
+                            $result = $conn->store_result();
+                            if ($result->num_rows > 0) {
+                                while($row = $result->fetch_assoc()) {
+                                    $user_id = $row["user_id"];
+                                    $user_name = $row["user_name"];
+                                    $user_gender = $row["user_gender"];
+                                    $user_age = $row["user_age"];
+                                    $user_email = $row["user_email"];
+                                    
+                                    echo "<tr>";
+                                    echo "<td class='cl1'>"."$user_id"."</td>";
+                                    echo "<td class='cl2'>"."$user_name"."</td>";
+                                    echo "<td class='cl3'>"."$user_gender"."</td>";
+                                    echo "<td class='cl4'>"."$user_age"."</td>";
+                                    echo "<td class='cl5'>"."$user_email"."</td>";
+                                    echo "</tr>";
+                                    
+                                }
+                                $result->free();
+                            }
+                        }
+                        do {
+                            $conn->use_result();
+                        } while ($conn->more_results() && $conn->next_result());
+                        echo "</table>";
+                        echo "</div>";
+                    }
+                ?> 
                 <div id="button">
                     <a id="cancel" href="routes.php" class="button bt_cancel">Cancel</a>
                     <?php
                         if ($route_status == "active"){
+                            #book button
                             if ($_SESSION['login_status'] && $_SESSION['role']=="passenger"){
                                 $conn = mysqli_connect("localhost", $_SESSION['user_id'], $_SESSION['db_psw'], "webserver",3306);
                                 if (!$conn) {

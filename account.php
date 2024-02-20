@@ -167,10 +167,17 @@
                 <div class="item">
                     <a href="edit_account.php" class="bt_text">Edit account</a>
                     <br>
-                    <a href="resetPassword.php" class="bt_text">Reset password</a>
-                    <br>
-                    <br>
-                    <a href="delete_account.php" class="bt_text_red">Delete account</a>
+                    <a href="resetPassword.php" class="bt_text">Change password</a>
+                    
+                    <?php 
+                    if (isset($_SESSION['role'])){
+                        if ($_SESSION['role'] == 'passenger'){
+                            echo "<br>
+                            <br><a href='delete_account.php' class='bt_text_red'>Delete account</a>";
+                        }
+                    }
+                    ?>
+                    
                 </div>
             </div>
         </div>

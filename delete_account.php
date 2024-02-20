@@ -9,6 +9,14 @@
         }
     }
 
+    if (!isset($_SESSION['role'])){
+        header("Location: account.php");
+    } else {
+        if ($_SESSION['role'] != 'passenger'){
+            header("Location: account.php");
+        }
+    }
+
     $_SESSION["delete_account"] = true ;
 ?>
 <html>
