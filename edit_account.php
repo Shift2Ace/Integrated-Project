@@ -45,9 +45,9 @@
         <div class="container">
             <div class="login">
                 <div class="header">
-                    Create Account
+                    Edit Account
                 </div>
-                <form action="edit_account_submit.php" id="ca_form" method="post">
+                <form action="edit_account_submit.php" id="ea_form" method="post">
                     <div class="input">
                         <div class="name">User Name</div>
                         <input type="text" id="user_name" name="user_name" value="<?php echo $user_name ?>" required>

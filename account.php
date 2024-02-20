@@ -167,7 +167,7 @@
                 <div class="item">
                     <a href="edit_account.php" class="bt_text">Edit account</a>
                     <br>
-                    <a href="resetPassword.php" class="bt_text">Change password</a>
+                    <a href="change_psw.php" class="bt_text">Change password</a>
                     
                     <?php 
                     if (isset($_SESSION['role'])){
