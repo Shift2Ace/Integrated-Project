@@ -25,13 +25,15 @@
 
     #get data
     $password_old = $_POST["password_old"];
+    $safePassword_old = mysqli_real_escape_string($conn, $password_old);
     $password_new = $_POST["password_new"];
+    $safePassword_new = mysqli_real_escape_string($conn, $password_new);
 
 
         
     #sql add user
     $user_id = $_SESSION['user_id'];
-    $sql = "Call change_psw('$password_old','$password_new');";
+    $sql = "Call change_psw('$safePassword_old','$safePassword_new');";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();

@@ -32,7 +32,7 @@
                 <form action="edit_icon_submit.php" method="post" enctype="multipart/form-data">
                     <div class="input">
                         <div class="name">File (Max: 10MB)</div>
-                        <input type="file" name="fileToUpload" id="fileToUpload" accept=".jpg,.jpeg" required>
+                        <input type="file" name="fileToUpload" id="fileToUpload" accept=".jpg,.jpeg,.png" required>
                     </div>
                     <div id="button">
                         <button type="submit" id="submit" class="button bt_apply">submit</button>

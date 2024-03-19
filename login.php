@@ -20,6 +20,14 @@
             form div.input input, form div.input select{
                 border-bottom: 0px solid;
             }
+            #message {
+                color: red;
+                background-color: #FFA5A5;
+                padding: 5px;
+                border-radius: 5px;
+                margin: 2px;
+                margin-bottom: 5px;
+            }
             
         </style>
     </head>
@@ -31,6 +39,13 @@
                     Login
                 </div>
                 <form action="login_submit.php" method="post">
+                    <?php 
+                        if ($_GET["ms"]){
+                            $output_message = str_replace('+', ' ', urlencode($_GET["ms"]));
+                            echo ("<div id='message'>$output_message</div>");
+                        }
+                    ?>
+                    
                     <div class="input">
                         <div class="name">Email / ID</div>
                         <input type="text" name="email" required>

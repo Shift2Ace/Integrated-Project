@@ -28,7 +28,7 @@
         
     }
 
-    $target_dir = "icon/"; // Specify the directory where the file will be placed
+    $target_dir = __DIR__ . '/../icon/'; // Specify the directory where the file will be placed
 
     
     $pattern = "$icon_name*";
@@ -37,7 +37,7 @@
         unlink($file);
     }
     
-    $allowed = array("jpg", "jpeg"); // Specify the allowed file extensions
+    $allowed = array("jpg", "jpeg", "png"); // Specify the allowed file extensions
 
     // Check if the user has selected a file to upload
     if(isset($_FILES["fileToUpload"])) {
@@ -88,7 +88,7 @@
             }
         } else {
             // The file extension is not allowed
-            $console = "Sorry, only JPG and JPEG files are allowed.";
+            $console = "Sorry, only PNG, JPG and JPEG files are allowed.";
             echo "<script>alert('Console: ". $console. "');</script>";
             echo "<script>window.location = 'edit_icon.php';</script>";
         }

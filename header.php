@@ -1,8 +1,8 @@
 <?php
-    ini_set('display_errors',1);
-    error_reporting(-1);
-    session_start();
-
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+    
     $s_user_ip = $_SERVER ['REMOTE_ADDR'];
 
 

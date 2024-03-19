@@ -56,17 +56,22 @@
     }
 
     #get icon file path
-    $dir = "icon";
-    $pattern = "$icon_id*.*";
-    $files = glob($dir . "/" . $pattern);
-    if (count($files) > 0) {
-        // Get the first file
-        $icon_path = $files[0];
-        
-    } else {
-        $icon_path = "image/default_icon.jpeg";
+    $imageFound = false;
+    $iconFolderPath = '/../icon/';
+    foreach (glob($iconFolderPath . $icon_id . '.*') as $file) {
+        $fileType = pathinfo($file, PATHINFO_EXTENSION);
+        if (in_array($fileType, ['jpg', 'jpeg'])) { // Add or remove file types as needed
+            // Found the image file, now you can use it in your webpage
+            $relativePathForWeb = str_replace($_SERVER['DOCUMENT_ROOT'], '', $file);
+            $imageFound = true;
+            break;
+        }
     }
- 
+    if (!$imageFound) {
+        $relativePathForWeb = "image.php?img=$icon_id.png";
+    }
+
+
 
 ?>
 
@@ -121,7 +126,8 @@
                 <div style="display: flex; ">
                     <a href="edit_icon.php">
                         <div id="icon">
-                            <img src="<?php echo($icon_path) ?>">
+                            <img src="image.php?img=<?php echo $icon_id ?>" />
+                            
                         </div>
                     </a>
                     <div class="item">

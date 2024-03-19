@@ -31,9 +31,9 @@
 
         
     #sql add user
-    $name = mysqli_escape_string($conn,$name);
+    $safeName = mysqli_real_escape_string($conn,$name);
     
-    $sql = "UPDATE my_account SET user_name = '$name', user_age = $age, user_gender = '$gender' ";
+    $sql = "UPDATE my_account SET user_name = '$safeName', user_age = $age, user_gender = '$gender' ";
     if ($conn->multi_query($sql)){
         $result = $conn->store_result();
         header("Location: account.php");

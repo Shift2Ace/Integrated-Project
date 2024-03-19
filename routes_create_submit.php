@@ -45,10 +45,10 @@
             die("Connection failed: " . mysqli_connect_error());
         }
         
-        $start = mysqli_escape_string($conn,$start);
-        $end = mysqli_escape_string($conn,$end);
-        $car = mysqli_escape_string($conn,$car);
-        $description = mysqli_escape_string($conn,$description);
+        $start = mysqli_real_escape_string($conn,$start);
+        $end = mysqli_real_escape_string($conn,$end);
+        $car = mysqli_real_escape_string($conn,$car);
+        $description = mysqli_real_escape_string($conn,$description);
         $sql = "CALL create_route('$date', '$time', '$start', '$end', '$car', $capacity, $price, '$description')";
 
         $result = $conn->query($sql);

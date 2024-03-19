@@ -18,9 +18,11 @@
 
     #get data
     $name = $_POST["user_name"];
+    $safeName = mysqli_real_escape_string($conn, $name);
     $age = $_POST["age"];
     $gender = $_POST["gender"];
     $email = $_POST["email"];
+    $safeEmail = mysqli_real_escape_string($conn, $email);
     $role = $_POST["role"];
     $password = $_POST["password"];
 
@@ -30,7 +32,7 @@
     $db_psw = '';
 
     #sql check email
-    $sql = "CALL check_email('$email');";
+    $sql = "CALL check_email('$safeEmail');";
     if ($conn->multi_query($sql)){
         $result = $conn->store_result();
         if ($result) {
@@ -54,9 +56,7 @@
     }else if ($email_check == 0) {
         try {
             #sql add user
-            $name = mysqli_escape_string($conn,$name);
-            $email = mysqli_escape_string($conn,$email);
-            $sql = "CALL create_account('$name','$email','$gender',$age,'$role','$password');";
+            $sql = "CALL create_account('$safeName','$safeEmail','$gender',$age,'$role','$password');";
             if ($conn->multi_query($sql)){
                 $result = $conn->store_result();
                 $email_check = 1;
@@ -72,7 +72,7 @@
             } while ($conn->more_results() && $conn->next_result());
 
             #sql get user id
-            $sql = "CALL get_id('$email');";
+            $sql = "CALL get_id('$safeEmail');";
             if ($conn->multi_query($sql)){
                 $result = $conn->store_result();
                 if ($result) {
