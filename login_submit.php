@@ -1,9 +1,14 @@
 <?php
-
-    ini_set('display_errors',1);
-    error_reporting(-1);
-
     session_start();
+    function generateToken() {
+        return bin2hex(random_bytes(32));
+    }
+    function verifyToken($userToken) {
+        return isset($_SESSION['csrf_token']) && hash_equals($_SESSION['csrf_token'], $userToken);
+    }
+    if (!verifyToken($_POST['csrf_token'])) {
+        die('CSRF token validation failed');
+    }
     $s_user_ip = $_SERVER ['REMOTE_ADDR'];
     $login_check = 0;
 

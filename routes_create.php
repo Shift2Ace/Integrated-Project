@@ -15,6 +15,15 @@
             header("Location: routes.php");
         }
     }
+    function generateToken() {
+        return bin2hex(random_bytes(32));
+    }
+    function verifyToken($userToken) {
+        return isset($_SESSION['csrf_token']) && hash_equals($_SESSION['csrf_token'], $userToken);
+    }
+    if (empty($_SESSION['csrf_token'])) {
+        $_SESSION['csrf_token'] = generateToken();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -129,7 +138,7 @@
                         </script>
                         <input type="number" value=0 id="priceInput" name="price">
                     </div>
-
+                    <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token']); ?>">
                     <div class="input">
                         <div class="name">Description</div>
                         <textarea name="description"></textarea>

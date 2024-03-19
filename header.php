@@ -3,6 +3,7 @@
         session_start();
     }
     
+    
     $s_user_ip = $_SERVER ['REMOTE_ADDR'];
 
 
@@ -11,7 +12,7 @@
     }
     
     # if user have session id in cookie & didn't login
-    if ($_COOKIE["s_id"] && $_COOKIE['user_id'] && $s_user_ip && !$_SESSION['login_status']){
+    if (isset($_COOKIE["s_id"]) && isset($_COOKIE['user_id']) && $s_user_ip && !$_SESSION['login_status']){
 
         $conn = mysqli_connect("localhost", "default", "default", "webserver",3306);
         if (!$conn) {

@@ -5,6 +5,15 @@
             header("Location: routes.php");
         }
     }
+    function generateToken() {
+        return bin2hex(random_bytes(32));
+    }
+    function verifyToken($userToken) {
+        return isset($_SESSION['csrf_token']) && hash_equals($_SESSION['csrf_token'], $userToken);
+    }
+    if (empty($_SESSION['csrf_token'])) {
+        $_SESSION['csrf_token'] = generateToken();
+    }
 ?>
 <html>
     <head>
@@ -56,7 +65,7 @@
                     </div>
                     <a href="registration.php" class="bt_text">Create account</a>
                     <div id="button">
-                        
+                    <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token']); ?>">
                         <button type="submit" id="submit" class="button bt_apply">Login</button>
                     </div>
                 </form>

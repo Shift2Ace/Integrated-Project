@@ -1,10 +1,18 @@
 <?php
-    
+    session_start();
     ini_set('display_errors',1);
     error_reporting(-1);
-
+    function generateToken() {
+        return bin2hex(random_bytes(32));
+    }
+    function verifyToken($userToken) {
+        return isset($_SESSION['csrf_token']) && hash_equals($_SESSION['csrf_token'], $userToken);
+    }
+    if (!verifyToken($_POST['csrf_token'])) {
+        die('CSRF token validation failed');
+    }
     #exit if not from registration.php
-    if (!$_POST["user_name"] || !$_POST["age"] || !$_POST["gender"] || !$_POST["email"] || !$_POST["role"] || !$_POST["password"]) {
+    if (!isset($_POST["user_name"]) || !isset($_POST["age"]) || !isset($_POST["gender"]) || !isset($_POST["email"]) || !isset($_POST["role"]) || !isset($_POST["password"])) {
         header("Location: registration.php");
         die();
     }

@@ -1,3 +1,15 @@
+<?php
+    session_start();
+    function generateToken() {
+        return bin2hex(random_bytes(32));
+    }
+    function verifyToken($userToken) {
+        return isset($_SESSION['csrf_token']) && hash_equals($_SESSION['csrf_token'], $userToken);
+    }
+    if (empty($_SESSION['csrf_token'])) {
+        $_SESSION['csrf_token'] = generateToken();
+    }
+?>
 <html>
     <head>
         <link rel="stylesheet" href="main.css">
@@ -48,6 +60,7 @@
                         <br>
                         <div class="name">Email</div>
                         <input type="email" id="email" name="email" required>
+                        <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token']); ?>">
                     </div>
                     <div class="input">
                         <div class="name">Account Type</div>

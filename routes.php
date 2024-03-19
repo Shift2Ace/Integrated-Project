@@ -1,8 +1,6 @@
 <?php
     session_start();
 
-    ini_set('display_errors',1);
-    error_reporting(-1);
 
     $conn = mysqli_connect("localhost", "default", "default", "webserver",3306);
     if (!$conn) {
