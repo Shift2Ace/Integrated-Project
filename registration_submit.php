@@ -33,6 +33,7 @@
     $safeEmail = mysqli_real_escape_string($conn, $email);
     $role = $_POST["role"];
     $password = $_POST["password"];
+    $safePassword = mysqli_real_escape_string($conn, $password);
 
     
     $email_check = 1;
@@ -64,7 +65,7 @@
     }else if ($email_check == 0) {
         try {
             #sql add user
-            $sql = "CALL create_account('$safeName','$safeEmail','$gender',$age,'$role','$password');";
+            $sql = "CALL create_account('$safeName','$safeEmail','$gender',$age,'$role','$safePassword');";
             if ($conn->multi_query($sql)){
                 $result = $conn->store_result();
                 $email_check = 1;
