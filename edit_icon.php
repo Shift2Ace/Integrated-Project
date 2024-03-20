@@ -11,16 +11,7 @@
 <html>
     <head>
         <link rel="stylesheet" href="main.css">
-        <style>
-            form {
-                margin: 0;
-            }
-
-            form div.input input, form div.input select{
-                border-bottom: 0px solid;
-            }
-            
-        </style>
+        <link rel="stylesheet" href="edit_icon.css">
     </head>
     <body>
         <?php include 'header.php'; ?>

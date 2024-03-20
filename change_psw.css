@@ -1,0 +1,9 @@
+form {
+    margin: 0;
+}
+br {
+    height: 1px;
+}
+form div.input input, form div.input select{
+    border-bottom: 1px solid #888;
+}

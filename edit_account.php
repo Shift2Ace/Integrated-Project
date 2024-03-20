@@ -28,17 +28,7 @@
 <html>
     <head>
         <link rel="stylesheet" href="main.css">
-        <style>
-            form {
-                margin: 0;
-            }
-            br {
-                height: 1px;
-            }
-            form div.input input, form div.input select{
-                border-bottom: 1px solid #888;
-            }
-        </style>
+        <link rel="stylesheet" href="edit_account.css">
     </head>
     <body>
         <?php include 'header.php'; ?>
@@ -55,7 +45,7 @@
                         <br>
                         <div class="name">Age</div>
                         <select id="age" name='age'  required></select>
-                        <script>
+                        <script nonce='rAnd0m'>
                             var select = document.getElementById("age");
                             for (var i = 1; i <= 120; i++) {
                                 var option = document.createElement("option");
@@ -73,12 +63,12 @@
                             <option value="male">Male</option>
                             <option value="female">Female</option>
                         </select>
-                        <script>
-                            let element = document.getElementById('gender');
+                        <script nonce='rAnd0m'>
+                            let elementg = document.getElementById('gender');
                             if ("<?php echo $user_gender?>" == "male"){
-                                element.selectedIndex = 0;
+                                elementg.selectedIndex = 0;
                             }else{
-                                element.selectedIndex = 1;
+                                elementg.selectedIndex = 1;
                             }
                         </script>
 

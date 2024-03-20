@@ -78,43 +78,7 @@
 <html>
     <head>
         <link rel="stylesheet" href="main.css">
-        <style>
-            .cl1 {
-                width: 50px;
-            }
-            .cl2 {
-                width: 50%;
-            }
-            .item {
-                min-width: 300px;
-            }
-            div#icon {
-                height: auto;
-                min-width: 30px;
-                background-image: url(image/edit.jpg);
-                background-repeat: no-repeat;
-                background-size: cover;
-                background-position: center;
-                margin: 5px;
-                height: 150px;
-                width: 150px;
-                border-radius: 6px;
-                
-            }
-
-            div#icon img {
-                height: 150px;
-                width: 150px;
-                border-radius: 6px;
-                background-color: #333;
-                object-fit: cover;
-                object-position: center;
-            }
-
-            div#icon img:hover {
-                opacity: 0.3;
-            }
-        </style>
+        <link rel="stylesheet" href="account.css">
     </head>
     <body>
         <?php include 'header.php'; ?>
@@ -123,7 +87,7 @@
                 <div class="header">
                     My Account
                 </div>
-                <div style="display: flex; ">
+                <div id="c1">
                     <a href="edit_icon.php">
                         <div id="icon">
                             <img src="image.php?img=<?php echo $icon_id ?>" />

@@ -29,60 +29,7 @@
 <html>
     <head>
         <link rel="stylesheet" href="main.css">
-        <style>
-            .cl1 {
-                width: 100px;
-            }
-            .cl2 {
-                width: 130px;
-            }
-            .cl3 {
-                width: 100px;
-            }
-            .cl4 {
-                width: 300px;
-            }
-            .cl5 {
-                width: 300px;
-            }
-            .cl6 {
-                width: auto;
-            }
-            .cl7 {
-                width: 120px;
-            }
-
-            .list {
-                width: 1500px;
-            }
-
-            .topHeader{
-                background-color: #004C99;
-                color: #FFF;
-                margin: 2px;
-                padding: 3px;
-                border-radius: 3px;
-                display: block;
-            }
-
-            .list .topHeader table{
-                width: 100%;
-                color: #FFF;
-            }
-
-            a.detail {
-                text-decoration: none;
-            }
-
-            div.item:hover {
-                background-color: #c8daeb;
-            }
-            div.create {
-                margin: 2px;
-                margin-bottom: 10px;
-                text-align: right;
-            }
-        </style>
+        <link rel="stylesheet" href="routes_dri.css">
     </head>
     <body>
         <?php include 'header.php'; ?>

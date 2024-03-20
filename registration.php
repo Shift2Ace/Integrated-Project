@@ -13,17 +13,9 @@
 <html>
     <head>
         <link rel="stylesheet" href="main.css">
-        <style>
-            form {
-                margin: 0;
-            }
-            br {
-                height: 1px;
-            }
-            form div.input input, form div.input select{
-                border-bottom: 1px solid #888;
-            }
-        </style>
+        <link rel="stylesheet" href="registration.css">
+        <script type="text/javascript" src="registration.js"></script>
+        
     </head>
     <body>
         <?php include 'header.php'; ?>
@@ -40,7 +32,7 @@
                         <br>
                         <div class="name">Age</div>
                         <select id="age" name='age' required></select>
-                        <script>
+                        <script nonce='rAnd0m'>
                             var select = document.getElementById("age");
                             for (var i = 1; i <= 120; i++) {
                                 var option = document.createElement("option");
@@ -83,38 +75,6 @@
                         
                     </div>
                 </form>
-                <script>
-                    function check() {
-                        var email = document.getElementById('email').value;
-                        var psw1 = document.getElementById('password').value;
-                        var psw2 = document.getElementById('password_cof').value;
-                        var role = document.getElementById('role').value;
-                        
-                        //check email
-                        let regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
-                        if (!regex.test(email)){
-                            alert("Your email is invalid");
-                            return;
-                        }
-
-                        // check if the password is at least 8 characters long
-                        if (psw1.length < 8) { // if the password is shorter than 8 characters
-                            alert("The password is too short. It should be at least 8 characters long."); // show an alert message
-                            return; // stop the function
-                        }
-                        if (psw1 !== psw2) { // if the passwords are not equal
-                            alert("The passwords do not match."); // show an alert message
-                            return; // stop the function
-                        }
-                        console.log('Information verified');
-                        var text = "Email : "+email+"\nAccount Type : "+role+"\n\nAre you sure?";
-                        if (confirm(text) == true) {
-                            document.getElementById('ca_form').submit();
-                            console.log('Form submitted')
-                        }
-                    }
-                </script>
-                
             </div>
         </div>
     </body>

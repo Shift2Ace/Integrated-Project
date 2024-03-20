@@ -1,11 +1,6 @@
 <?php
     session_start();
-    $route_id = "";
-    if (isset($_GET["id"])){
-        $route_id_input = $_GET["id"];
-    } else {
-        header("Location: routes.php");
-    }
+    
 
     $_SESSION["booking_route_id"] =  "";
     $_SESSION["delete_route_id"] =  "";
@@ -17,8 +12,15 @@
         die("Connection failed: " . mysqli_connect_error());
     }
 
+    $route_id = "";
+    if (isset($_GET["id"])){
+        $route_id_input = $_GET["id"];
+        $safe_route_id_input = mysqli_real_escape_string($conn, $route_id_input);
+    } else {
+        header("Location: routes.php");
+    }
 
-    $sql = "SELECT route_list.route_id, route_list.route_date, route_list.route_time, route_list.route_start, route_list.route_end, route_list.route_car, route_list.route_description, route_list.route_price,route_list.route_capacity, route_booking_count.booking_count, route_list.route_status, route_list.driver_id, route_list.driver_name, route_list.driver_email, route_list.route_status FROM route_list, route_booking_count WHERE route_list.route_id = route_booking_count.route_id AND route_list.route_id = '$route_id_input';";
+    $sql = "SELECT route_list.route_id, route_list.route_date, route_list.route_time, route_list.route_start, route_list.route_end, route_list.route_car, route_list.route_description, route_list.route_price,route_list.route_capacity, route_booking_count.booking_count, route_list.route_status, route_list.driver_id, route_list.driver_name, route_list.driver_email, route_list.route_status FROM route_list, route_booking_count WHERE route_list.route_id = route_booking_count.route_id AND route_list.route_id = '$safe_route_id_input';";
     if ($conn->multi_query($sql)){
         $result = $conn->store_result();
         if ($result->num_rows > 0) {
@@ -53,50 +55,17 @@
 <html>
     <head>
         <link rel="stylesheet" href="main.css">
-        <style>
-            
-            div#description {
-                width: auto;                
-            }
-            table {
-                width: 100%;
-            }
-            .cl1 {
-                width: 150px;
-            }
-            .cl2 {
-                width: 300px;
-            }
-            .cl3 {
-                width: 100px;
-            }
-            .cl4 {
-                width: auto;
-            }
-            .cl5 {
-                width: 300px;
-            }
-            h2 {
-                margin: 2px;
-                margin-top: 10px;
-            }
-            .hd {
-                font-weight: 900;
-                border-bottom: 2px solid;
-            }
-
-            
-        </style>
+        <link rel="stylesheet" href="routes_detail.css">
     </head>
     <body>
         <?php include 'header.php'; ?>
         <div class="container">
-            <div class="content" style="width:1000px">
+            <div class="content" id="d1">
                 <div class="header">
                     Detail Information
                 </div>
-                <div style="display: flex"> 
-                    <div class="item" style="flex-grow:1; overflow:scroll ;width: 50%">
+                <div id="d2"> 
+                    <div class="item" id="d3">
                         <table>
                             <tr>
                                 <td>Route ID</td>
@@ -130,8 +99,8 @@
                             </tr>
                         </table>
                     </div>
-                    <div style="flex-grow:1;width: 50%">
-                        <div class="item" style="height: auto; overflow:scroll">
+                    <div id="d4">
+                        <div class="item" id="d5">
                             <table>
                                 <tr>
                                     <td>Driver Name</td>

@@ -60,72 +60,8 @@
 <!DOCTYPE html>
     <head>
         <link rel="stylesheet" href="main.css">
-        <style>
-            div.top {
-                text-align: center;
-                font-size: 30px;
-                font-weight: 900;
-                font-family: Georgia, 'Times New Roman', Times, serif;
-                background-color: #222;
-            }
+        <link rel="stylesheet" href="header.css">
 
-            div.top a {
-                display: block;
-                text-align: center;
-                padding: 14px 16px;
-                text-decoration: none;
-                color: #ccc;
-            }
-
-            ul {
-                list-style-type: none;
-                margin: 0;
-                padding: 0;
-                overflow: hidden;
-                background-color: #333;
-                }
-
-            li {
-                float: left;
-                border-right:1px solid #222;
-            }
-
-            li:last-child {
-                border-right: none;
-            }
-
-            li a {
-                display: block;
-                color: white;
-                text-align: center;
-                padding: 15px;
-                text-decoration: none;
-            }
-
-            li a:hover:not(.active) {
-                background-color: #111;
-            }
-
-            .active {
-                background-color: #04AA6D;
-            }
-            body {
-                margin: 0;
-                width: 100%;
-            }
-
-            #header {
-                width: 100%;
-                position: fixed;
-                top: 0;
-                left: 0;
-            }
-
-            #h_space {
-                height: 112px;
-            }
-            
-        </style>
     </head>
     <body>
         
@@ -144,9 +80,9 @@
                                 echo("<li><a href='routes_dri.php'>My Routes</a></li>");
                             }
                             echo("<li><a href='account.php'>Account</a></li>");
-                            echo("<li style='float:right'><a href='logout.php'>logout</a></li>");
+                            echo("<li id='log'><a href='logout.php'>logout</a></li>");
                         } else {
-                            echo("<li style='float:right'><a href='login.php'>login</a></li>");
+                            echo("<li id='log'><a href='login.php'>login</a></li>");
                         }
                     ?>
                 </ul>

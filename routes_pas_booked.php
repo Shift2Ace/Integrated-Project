@@ -31,49 +31,7 @@
 <html>
     <head>
         <link rel="stylesheet" href="main.css">
-        <style>
-            .cl1 {
-                width: 100px;
-            }
-            .cl2 {
-                width: 130px;
-            }
-            .cl3 {
-                width: 100px;
-            }
-            .cl4 {
-                width: 300px;
-            }
-            .cl5 {
-                width: auto;
-            }
-            .cl6 {
-                width: 120px;
-            }
-
-            .topHeader{
-                background-color: #004C99;
-                color: #FFF;
-                margin: 2px;
-                padding: 3px;
-                border-radius: 3px;
-                display: block;
-            }
-
-            .list .topHeader table{
-                width: 100%;
-                color: #FFF;
-            }
-
-            a.detail {
-                text-decoration: none;
-            }
-
-            div.item:hover {
-                background-color: #c8daeb;
-            }
-
-        </style>
+        <link rel="stylesheet" href="routes_pas_booked.css">
     </head>
     <body>
         <?php include 'header.php'; ?>

@@ -18,27 +18,7 @@
 <html>
     <head>
         <link rel="stylesheet" href="main.css">
-        <style>
-            form {
-                margin: 0;
-            }
-            .bt_apply {
-                width: 100%;
-            }
-
-            form div.input input, form div.input select{
-                border-bottom: 0px solid;
-            }
-            #message {
-                color: red;
-                background-color: #FFA5A5;
-                padding: 5px;
-                border-radius: 5px;
-                margin: 2px;
-                margin-bottom: 5px;
-            }
-            
-        </style>
+        <link rel="stylesheet" href="login.css">
     </head>
     <body>
         <?php include 'header.php'; ?>

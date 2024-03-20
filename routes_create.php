@@ -29,23 +29,8 @@
 <!DOCTYPE html>
     <head>
         <link rel="stylesheet" href="main.css">
-        <style>  
-            form {
-                margin: 0;
-            }
-            br {
-                height: 1px;
-            }
-            textarea {
-                resize: vertical;
-                box-sizing: border-box;
-                width: 100%;
-            }
-            form div.input input, form div.input select{
-                border-bottom: 1px solid #888;
-            }
-        </style>
-        <script>
+        <link rel="stylesheet" href="routes_create.css">
+        <script nonce='rAnd0m'>
             function changeOptions(source,target) {
                 var selectedRegion = document.getElementById(source).value;
                 var targetDistrict = document.getElementById(target);
@@ -72,7 +57,16 @@
             }
         </script>
     </head>
-    <body onload="changeOptions('start_region','start_district'), changeOptions('end_region','end_district')">
+    <body id='myBody'>
+        <script nonce="rAnd0m">
+            document.addEventListener('DOMContentLoaded', (event) => {
+                document.getElementById('myBody').onload = function() {
+                    changeOptions('start_region', 'start_district');
+                    changeOptions('end_region', 'end_district');
+                };
+            });
+
+        </script>
         <?php include 'header.php'; ?>
         <div class="container">
             <div class="login">
@@ -82,24 +76,40 @@
                 <form action="routes_create_submit.php" method="post">
                     <div class="input">
                         <div class="name">Start Location</div>
-                        <select id="start_region" onchange="changeOptions('start_region','start_district')" name="start_region" required>
+                        <select id="start_region" name="start_region" required>
                             <option>(Select Region)</option>
                             <option>Hong Kong</option>
                             <option>Kowloon</option>
                             <option>New Territories</option>
                         </select>
+                        <script nonce="rAnd0m">
+                            document.addEventListener('DOMContentLoaded', function () {
+                                var startRegionSelect = document.getElementById('start_region');
+                                startRegionSelect.addEventListener('change', function() {
+                                    changeOptions('start_region', 'start_district');
+                                });
+                            });
+                        </script>
                         <select id="start_district" name="start_district" required>
                         </select>
                         <input type="text" name="start_street" placeholder="(street/building)">
                         <br>
                         <br>
                         <div class="name">Destination</div>
-                        <select id="end_region" onchange="changeOptions('end_region','end_district')" name="end_region" required>
+                        <select id="end_region" name="end_region" required>
                             <option>(Select Region)</option>
                             <option>Hong Kong</option>
                             <option>Kowloon</option>
                             <option>New Territories</option>
                         </select>
+                        <script nonce="rAnd0m">
+                            document.addEventListener('DOMContentLoaded', function () {
+                                var startRegionSelect = document.getElementById('end_region');
+                                startRegionSelect.addEventListener('change', function() {
+                                    changeOptions('end_region', 'end_district');
+                                });
+                            });
+                        </script>
                         <select id="end_district" name="end_district" required>
                         </select>
                         <input type="text" placeholder="(street/building)" name="end_street" required>
@@ -119,7 +129,7 @@
                         <br>
                         <div class="name">Available passenger capacity</div>
                         <select id="number" name="capacity" required>
-                            <script>
+                            <script nonce='rAnd0m'>
                                 var select = document.getElementById("number");
                                 for (var i = 1; i <= 800; i++) {
                                     var option = document.createElement("option");
@@ -132,7 +142,7 @@
                     </div>
                     <div class="input">
                         <div class="name">Price (HKD)</div>
-                        <script>
+                        <script nonce='rAnd0m'>
                             var numberInput = document.getElementById("priceInput");
                             
                         </script>

@@ -11,17 +11,8 @@
 <html>
     <head>
         <link rel="stylesheet" href="main.css">
-        <style>
-            form {
-                margin: 0;
-            }
-            br {
-                height: 1px;
-            }
-            form div.input input, form div.input select{
-                border-bottom: 1px solid #888;
-            }
-        </style>
+        <link rel="stylesheet" href="change_psw.css">
+        <script type="text/javascript" src="change_psw.js"></script>
     </head>
     <body>
         <?php include 'header.php'; ?>
@@ -47,28 +38,6 @@
                     <div id="button">
                         <a id="cancel" href="account.php" class="button bt_cancel">Cancel</a>
                         <button type="button" id="submit_bt" class="button bt_apply" onclick="check()">Apply</button>
-                        <script>
-                            function check() {
-                                var old_psw = document.getElementById('password_old').value;
-                                var psw1 = document.getElementById('password_new').value;
-                                var psw2 = document.getElementById('password_cof').value;
-
-                                // check if the password is at least 8 characters long
-                                if (psw1.length < 8) { // if the password is shorter than 8 characters
-                                    alert("The password is too short. It should be at least 8 characters long."); // show an alert message
-                                    return; // stop the function
-                                }else if (old_psw == psw1) { // if the passwords are not equal
-                                    alert("The passwords is same."); // show an alert message
-                                    return; // stop the function
-                                }else if (psw1 != psw2) { // if the passwords are not equal
-                                    alert("The passwords do not match."); // show an alert message
-                                    return; // stop the function
-                                }else {
-                                    document.getElementById('cp_form').submit();
-                                    console.log('Form submitted')
-                                }
-                            }
-                        </script>
                     </div>
                 </form>
             </div>

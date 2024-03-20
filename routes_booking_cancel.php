@@ -57,14 +57,6 @@
 <html>
     <head>
         <link rel="stylesheet" href="main.css">
-        <style>
-            .cl1 {
-                width: 50px;
-            }
-            .cl2 {
-                width: 50%;
-            }
-        </style>
     </head>
     <body>
         <?php include 'header.php'; ?>
