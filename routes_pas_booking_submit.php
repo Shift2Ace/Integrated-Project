@@ -40,19 +40,19 @@
         while($row = $result->fetch_assoc()) {
             switch ($row['result']){
                 case "0":
-                    echo "<script>";
+                    echo "<script nonce='rAnd0m'>";
                     echo "alert('Successfully');";
                     echo "window.location = 'routes.php';";
                     echo "</script>";
                     break;
                 case "1":
-                    echo "<script>";
+                    echo "<script nonce='rAnd0m'>";
                     echo "alert('This route is full');";
                     echo "window.location = 'routes.php';";
                     echo "</script>";
                     break;
                 case "2":
-                    echo "<script>";
+                    echo "<script nonce='rAnd0m'>";
                     echo "alert('You have already booked');";
                     echo "window.location = 'routes.php';";
                     echo "</script>";
