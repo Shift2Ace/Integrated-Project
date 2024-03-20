@@ -38,7 +38,7 @@
         $conn->use_result();
     } while ($conn->more_results() && $conn->next_result());
     if ($login_check > 5) {
-        echo "<script>";
+        echo "<script nonce='rAnd0m'>";
         $message = ("The number of logins has reached the limit. Try later.");
         echo "window.location = 'login.php?ms=$message';";
         echo "</script>";
@@ -73,7 +73,7 @@
             $sql = "INSERT INTO login_log (login_ip, login_time) VALUES ('$s_user_ip',NOW());";
             $result = $conn->query($sql);
             $conn->close();
-            echo "<script>";
+            echo "<script nonce='rAnd0m'>";
             $message = ("User ID or password incorrect.");
             echo "window.location = 'login.php?ms=$message';";
             echo "</script>";

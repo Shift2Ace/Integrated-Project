@@ -58,7 +58,7 @@
 
     if ($email_check >= 1){
         $conn->close();
-        echo "<script>";
+        echo "<script nonce='rAnd0m'>";
         echo "alert('Your email has been used');";
         echo "window.location = 'registration.php';";
         echo "</script>";
@@ -131,14 +131,14 @@
             }
 
             $conn->close();
-            echo "<script>";
+            echo "<script nonce='rAnd0m'>";
             echo "alert('Successfully');";
             echo "window.location = 'login.php';";
             echo "</script>";
 
         }catch (Exception $e){
             $conn->close();
-            echo "<script>";
+            echo "<script nonce='rAnd0m'>";
             echo "alert('Failed: $e');";
             echo "window.location = 'registration.php';";
             echo "</script>";

@@ -44,8 +44,8 @@
 
     if (strtotime($date) < time()) {
         $console = "Invalid Date";
-        echo "<script>alert('$console');</script>";
-        echo "<script>window.location = 'routes_create.php';</script>";
+        echo "<script nonce='rAnd0m'>alert('$console');</script>";
+        echo "<script nonce='rAnd0m'>window.location = 'routes_create.php';</script>";
     }else {
         $conn = mysqli_connect("localhost", $_SESSION['user_id'], $_SESSION['db_psw'], "webserver",3306);
         

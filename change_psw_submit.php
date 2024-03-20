@@ -39,13 +39,13 @@
         $row = $result->fetch_assoc();
         switch ($row['result']){
             case "0":
-                echo "<script>";
+                echo "<script nonce='rAnd0m'>";
                 echo "alert('Successfully');";
                 echo "window.location = 'account.php';";
                 echo "</script>";
                 break;
             case "1":
-                echo "<script>";
+                echo "<script nonce='rAnd0m'>";
                 echo "alert('Wrong password');";
                 echo "window.location = 'change_psw.php';";
                 echo "</script>";

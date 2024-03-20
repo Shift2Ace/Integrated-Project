@@ -1,5 +1,4 @@
 <?php
-
     ini_set('display_errors',1);
     error_reporting(-1);
 
@@ -66,36 +65,36 @@
                     if(move_uploaded_file($fileTmpName, $target_file)) {
                         // The file has been uploaded successfully
                         $console = "The file " . htmlspecialchars($fileName) . " has been uploaded as " . htmlspecialchars($newFileName) . ".";
-                        echo "<script>console.log('Console: ". $console. "');</script>";
+                        echo "<script nonce='rAnd0m'>console.log('Console: ". $console. "');</script>";
                         header("Location: account.php");
                     } else {
                         // There was an error while moving the file
                         $console = "Sorry, there was an error while uploading your file.";
-                        echo "<script>alert('Console: ". $console. "');</script>";
-                        echo "<script>window.location = 'edit_icon.php';</script>";
+                        echo "<script nonce='rAnd0m'>alert('Console: ". $console. "');</script>";
+                        echo "<script nonce='rAnd0m'>window.location = 'edit_icon.php';</script>";
                     }
                 } else {
                     // The file is not an image
                     $console = "Sorry, the file is not an image.";
-                    echo "<script>alert('Console: ". $console. "');</script>";
-                    echo "<script>window.location = 'edit_icon.php';</script>";
+                    echo "<script nonce='rAnd0m'>alert('Console: ". $console. "');</script>";
+                    echo "<script nonce='rAnd0m'>window.location = 'edit_icon.php';</script>";
                 }
             } else {
                 // The file is too large
                 $console = "Sorry, the file is too large.";
-                echo "<script>alert('Console: ". $console. "');</script>";
-                echo "<script>window.location = 'edit_icon.php';</script>";
+                echo "<script nonce='rAnd0m'>alert('Console: ". $console. "');</script>";
+                echo "<script nonce='rAnd0m'>window.location = 'edit_icon.php';</script>";
             }
         } else {
             // The file extension is not allowed
             $console = "Sorry, only PNG, JPG and JPEG files are allowed.";
-            echo "<script>alert('Console: ". $console. "');</script>";
-            echo "<script>window.location = 'edit_icon.php';</script>";
+            echo "<script nonce='rAnd0m'>alert('Console: ". $console. "');</script>";
+            echo "<script nonce='rAnd0m'>window.location = 'edit_icon.php';</script>";
         }
     } else {
         // The user has not selected a file to upload
         $console = "Please select a file to upload.";
-        echo "<script>alert('Console: ". $console. "');</script>";
-        echo "<script>window.location = 'edit_icon.php';</script>";
+        echo "<script nonce='rAnd0m'>alert('Console: ". $console. "');</script>";
+        echo "<script nonce='rAnd0m'>window.location = 'edit_icon.php';</script>";
     }
 ?>
