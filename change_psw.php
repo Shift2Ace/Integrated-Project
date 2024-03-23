@@ -37,7 +37,10 @@
 
                     <div id="button">
                         <a id="cancel" href="account.php" class="button bt_cancel">Cancel</a>
-                        <button type="button" id="submit_bt" class="button bt_apply" onclick="check()">Apply</button>
+                        <button type="button" id="submit_bt" class="button bt_apply">Apply</button>
+                        <script nonce="rAnd0m">
+                            document.getElementById("submit_bt").addEventListener("click", check);
+                        </script>
                     </div>
                 </form>
             </div>
